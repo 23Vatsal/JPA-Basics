@@ -1,5 +1,8 @@
 package com.learning.jpa.jpademo;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,14 @@ public class UserRepositoryCommandLineRunner implements CommandLineRunner{
 		userRepository.save(user);
 		
 		log.info("New user is created "+user);
+		
+		Optional<User> findByIdOne = userRepository.findById(1L);
+		
+		log.info("User retrieved "+findByIdOne);
+		
+		List<User> findAll = userRepository.findAll();
+		
+		log.info("All users are "+findAll);
 		
 	}
 
